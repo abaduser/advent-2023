@@ -3,6 +3,7 @@ import random
 total_cubes = {'red':12, 'green':13, 'blue':14}
 
 def is_game_possible(game_entry):
+    fewest_required = {}
     for round in game_entry[1]:
         for cube, quantity in round.items():
             if quantity > total_cubes[cube]:
@@ -27,7 +28,6 @@ def process_game_line(line):
                 entry[color] = entry[color] + num_cubes 
             else:
                 entry[color] = num_cubes
-        entry = dict(sorted(entry.items()))
         print(entry)
         game_information.append(entry)
 
